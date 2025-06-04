@@ -1,14 +1,11 @@
-import express from 'express';
+import express from "express";
+import launchRoutes from "./routes/launchRoutes";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('API rodando com sucesso!');
-});
+app.use("/api", launchRoutes);
 
-app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`);
+app.listen(3000, () => {
+    console.log("Servidor rodando na porta 3000");
 });
