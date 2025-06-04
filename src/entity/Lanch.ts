@@ -9,25 +9,25 @@ export enum LaunchType {
 @Entity()
 export class Launch {
     @PrimaryGeneratedColumn()
-    id: number;
+    id!: number;
 
     @Column()
     @IsDateString()
     @IsNotEmpty()
-    date: string;  // ISO string date
+    date!: string;  // ISO string date
 
     @Column()
     @IsNotEmpty()
-    description: string;
+    description!: string;
 
     @Column("decimal", { precision: 10, scale: 2 })
     @IsPositive()
-    amount: number;
+    amount!: number;
 
     @Column({
         type: "enum",
         enum: LaunchType,
     })
     @IsEnum(LaunchType)
-    type: LaunchType;
+    type!: LaunchType;
 }
